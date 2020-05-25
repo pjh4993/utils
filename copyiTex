@@ -1,0 +1,12 @@
+#! /bin/sh
+copyPath="/mnt/vclab/public/Project/iTex_수식인식/Dataset_matrix/PDF/"
+target=""
+
+for i in $(seq $1 $2);
+do
+  target="$target $copyPath"
+  target="$target$i.pdf"
+done
+
+echo $target
+lpr $target

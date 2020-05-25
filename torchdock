@@ -1,0 +1,6 @@
+if [ "$1" == "root" ]
+then
+	docker run -it --init --gpus all --ipc=host -v $(pwd):/workspace -e NVIDIA_VISIBLE_DEVICES=all pjh3974/pytorch:latest
+else
+	docker run -it --init --gpus all --ipc=host -u $(id -u):$(id -g) -p 8888:8888 -v $(pwd):/workspace -e NVIDIA_VISIBLE_DEVICES=all pjh3974/pytorch:latest
+fi

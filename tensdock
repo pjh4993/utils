@@ -1,0 +1,10 @@
+echo $1
+if [ "$1" == "root" ]
+then
+	docker run -it -v $(pwd):/tf/workspace pjh3974/tensorflow bash
+elif [ "$1" == "jupyter" ]
+then
+	docker run -u $(id -u):$(id -g) -it -v $(pwd):/tf/workspace -p 8888:8888 pjh3974/tensorflow
+else
+	docker run -u $(id -u):$(id -g) -it -v $(pwd):/tf/workspace pjh3974/tensorflow bash
+fi

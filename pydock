@@ -1,0 +1,6 @@
+if [ "$1" == "root" ]
+then
+	docker run -it -v $(pwd):/workspace python:3.7 bash
+else
+	docker run -u $(id -u):$(id -g) -it -v $(pwd):/workspace python:3.7 bash
+fi
